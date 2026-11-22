@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="128" fill="url(#bg)" />
+  <path d="M256 90 L380 380 L132 380 Z" fill="#ef4444" opacity="0.15" />
+  <!-- Crescent Moon -->
+  <path d="M330 140 A 100 100 0 1 0 330 300 A 75 75 0 0 1 330 140 Z" fill="#eab308" />
+  <!-- Dagger Silhouette -->
+  <path d="M256 120 L270 270 L290 275 L290 295 L265 295 L265 370 L247 370 L247 295 L222 295 L222 275 L242 270 Z" fill="#f8fafc" />
+</svg>
