@@ -1,5 +1,7 @@
 import express from 'express';
 import http from 'node:http';
+import path from 'node:path';
+import fs from 'node:fs';
 import { Server } from 'socket.io';
 import cors from 'cors';
 import { ClientToServerEvents, ServerToClientEvents, GameState, getPlayerView } from 'mafia-shared';
@@ -15,6 +17,15 @@ app.use(express.json());
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', time: Date.now() });
 });
+
+// In production or when client/dist exists, serve client static files
+const clientDist = path.resolve(process.cwd(), 'client/dist');
+if (fs.existsSync(clientDist)) {
+  app.use(express.static(clientDist));
+  app.get('*', (_req, res) => {
+    res.sendFile(path.join(clientDist, 'index.html'));
+  });
+}
 
 const io = new Server<ClientToServerEvents, ServerToClientEvents>(server, {
   cors: {
